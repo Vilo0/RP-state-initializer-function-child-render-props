@@ -26,3 +26,8 @@ export interface ProductCardHOCProps {
     Image: (Props: ProductImageProps) => JSX.Element;
     Buttons: (Props: ProductButtons) => JSX.Element;
 }
+
+export interface onchangeArgs {
+    product: Product;
+    count: number;
+}
