@@ -10,7 +10,7 @@ const product1 = {
 };
 
 const product2 = {
-  id: '21',
+  id: '2',
   title: 'Coffee Mug - Meme',
   img: './coffee-mug2.png'
 };
@@ -25,7 +25,24 @@ export const ShoppingPage = () => {
   const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>({});
 
   const onProductCountChange = ({ count, product }: { count: number, product: Product }) => {
-    console.log('onProductCountChange', count, product);
+    // console.log(count, product);
+    setShoppingCart(oldShoppingCart => {
+      if (count === 0) {
+        // delete oldShoppingCart[product.id];
+        const { [product.id]: toDelete, ...rest } = oldShoppingCart;
+        return {
+          ...rest,
+        };
+      }
+
+      return {
+        ...oldShoppingCart,
+        [product.id]: {
+          ...product,
+          count,
+        }
+      };
+    });
   }
 
   return (
@@ -75,6 +92,12 @@ export const ShoppingPage = () => {
               <ProductImage className="custom-image" />
               <ProductButtons className="custom-buttons" />
             </ProductCard>
+        </div>
+
+        <div>
+          <code>
+            { JSON.stringify(shoppingCart, null, 5) }
+          </code>
         </div>
     </div>
   );
