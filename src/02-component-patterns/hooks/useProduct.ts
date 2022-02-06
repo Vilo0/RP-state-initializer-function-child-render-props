@@ -13,7 +13,6 @@ export const useProduct = ({ onChange, product, value = 0 }: useProductArgs) => 
 
     const [ counter, setCounter ] = useState( value );
 
-
     const increaseBy = ( value: number ) => {
       
         const newValue = Math.max( counter + value, 0 )
