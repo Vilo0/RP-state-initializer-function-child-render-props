@@ -1,6 +1,7 @@
 import { ProductButtons, ProductCard, ProductImage, ProductTitle } from '../components';
 import '../styles/custom-styles.css';
 import { Product } from '../interfaces/interfaces';
+import { useState } from 'react';
 
 const product1 = {
   id: '1',
@@ -16,7 +17,18 @@ const product2 = {
 
 const products: Product[] = [product1, product2];
 
+interface ProductInCart extends Product {
+  count: number;
+}
+
 export const ShoppingPage = () => {
+  const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>({
+    '1': { ...product1, count: 10 },
+    '2': { ...product2, count: 2 },
+  });
+
+  console.log(shoppingCart);
+
   return (
     <div>
         <h1>Shopping Store</h1>
@@ -51,7 +63,6 @@ export const ShoppingPage = () => {
               style={{ width: '100px' }}
             >
               <ProductImage className="custom-image" />
-              <ProductTitle className="text-bold" />
               <ProductButtons className="custom-buttons" />
             </ProductCard>
 
@@ -61,7 +72,6 @@ export const ShoppingPage = () => {
               style={{ width: '100px' }}
             >
               <ProductImage className="custom-image" />
-              <ProductTitle className="text-bold" />
               <ProductButtons className="custom-buttons" />
             </ProductCard>
         </div>
