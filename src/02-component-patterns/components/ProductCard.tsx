@@ -12,7 +12,8 @@ const { Provider } = ProductContext;
 
 export interface Props {
     product: Product;
-    children?: React.ReactElement | React.ReactElement[];
+    // children?: React.ReactElement | React.ReactElement[];
+    children: (message: string) => JSX.Element;
     className?: string;
     style?: React.CSSProperties;
     onChange?: ( args: onChangeArgs ) => void;
@@ -35,7 +36,7 @@ export const ProductCard = ({ children, product, className, style, onChange, val
                 className={ `${ styles.productCard } ${ className }` }
                 style={ style }
             >
-                { children }
+                { children('Hola Mundo') }
             </div>
         </Provider>
     )
