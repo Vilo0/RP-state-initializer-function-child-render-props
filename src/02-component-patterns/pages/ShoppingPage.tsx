@@ -22,12 +22,11 @@ interface ProductInCart extends Product {
 }
 
 export const ShoppingPage = () => {
-  const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>({
-    '1': { ...product1, count: 10 },
-    '2': { ...product2, count: 2 },
-  });
+  const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>({});
 
-  console.log(shoppingCart);
+  const onProductCountChange = () => {
+    console.log('onProductCountChange');
+  }
 
   return (
     <div>
@@ -45,6 +44,7 @@ export const ShoppingPage = () => {
               product={ product }
               className="bg-dark text-white"
               key={product.id}
+              onChange={ () => onProductCountChange() }
             >
               <ProductImage className="custom-image" />
               <ProductTitle className="text-bold" />
@@ -61,6 +61,7 @@ export const ShoppingPage = () => {
               product={ product2 }
               className="bg-dark text-white"
               style={{ width: '100px' }}
+              onChange={ () => onProductCountChange() }
             >
               <ProductImage className="custom-image" />
               <ProductButtons className="custom-buttons" />
