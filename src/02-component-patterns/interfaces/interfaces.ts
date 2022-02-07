@@ -14,6 +14,7 @@ export interface ProductContextProps {
     counter: number;
     product: Product;
     increaseBy: ( value: number ) => void;
+    maxCount?: number;
 }
 
 
