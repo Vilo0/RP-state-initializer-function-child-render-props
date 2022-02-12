@@ -1,33 +1,55 @@
 import '../styles/styles.css';
+import { ChangeEvent, useState } from 'react';
 
 export const RegisterPage = () => {
-  return (
-    <div>
-        <h1>RegisterPage</h1>
+    const [registerData, setRegisterData] = useState({
+        name: 'edgard',
+        email: 'thevilos@gmail.com',
+        password1: '123456',
+        password2: '123456',
+    });
 
-        <form>
-            <input 
-                type="text"
-                placeholder="Name"
-            />
+    const { email, name, password1, password2 } = registerData;
 
-            <input 
-                type="email"
-                placeholder="Email"
-            />
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+        console.log(e.target);
+    }
 
-            <input 
-                type="password"
-                placeholder="Password"
-            />
+    return (
+        <div>
+            <h1>RegisterPage</h1>
 
-            <input 
-                type="password"
-                placeholder="Repeat Password"
-            />
+            <form>
+                <input 
+                    type="text"
+                    placeholder="Name"
+                    value={name}
+                    onChange={onChange}
+                />
 
-            <button type="submit">Create</button>
-        </form>
-    </div>
-  )
+                <input 
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={onChange}
+                />
+
+                <input 
+                    type="password"
+                    placeholder="Password"
+                    value={password1}
+                    onChange={onChange}
+                />
+
+                <input 
+                    type="password"
+                    placeholder="Repeat Password"
+                    value={password2}
+                    onChange={onChange}
+                />
+
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    )
 }
