@@ -1,10 +1,13 @@
-import { FormikErrors, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import '../styles/styles.css';
 
 export const FormikYupPage = () => {
-    const { handleChange, values, handleSubmit, errors, touched, handleBlur } = useFormik({
+    const { 
+        handleSubmit, errors, 
+        touched, getFieldProps
+    } = useFormik({
         initialValues: {
             firstName: '',
             lastName: '',
@@ -30,33 +33,15 @@ export const FormikYupPage = () => {
 
             <form onSubmit={ handleSubmit } noValidate>
                 <label htmlFor="firstName">First Name</label>
-                <input 
-                    type="text" 
-                    name="firstName"
-                    onChange={ handleChange }
-                    onBlur={ handleBlur }
-                    value={ values.firstName }
-                />
+                <input  type="text" { ...getFieldProps('firstName') } />
                 { touched.firstName && errors.firstName && <span>{ errors.firstName }</span> }
 
                 <label htmlFor="lastName">Last Name</label>
-                <input 
-                    type="text" 
-                    name="lastName"
-                    onChange={ handleChange }
-                    onBlur={ handleBlur }
-                    value={ values.lastName }
-                />
+                <input type="text" { ...getFieldProps('lastName') } />
                 { touched.lastName && errors.lastName && <span>{ errors.lastName }</span> }
 
                 <label htmlFor="email">Email Address</label>
-                <input 
-                    type="email" 
-                    name="email"
-                    onChange={ handleChange }
-                    onBlur={ handleBlur }
-                    value={ values.email }
-                />
+                <input type="email" { ...getFieldProps('email') } />
                 { touched.email && errors.email && <span>{ errors.email }</span> }
 
                 <button type="submit">Submit</button>
