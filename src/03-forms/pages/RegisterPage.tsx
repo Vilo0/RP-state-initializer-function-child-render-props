@@ -1,28 +1,38 @@
 import '../styles/styles.css';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 export const RegisterPage = () => {
     const [registerData, setRegisterData] = useState({
-        name: 'edgard',
-        email: 'thevilos@gmail.com',
-        password1: '123456',
-        password2: '123456',
+        name: '',
+        email: '',
+        password1: '',
+        password2: '',
     });
 
     const { email, name, password1, password2 } = registerData;
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target);
+        const { name: nameInput, value } = e.target;
+        setRegisterData( prev => ({
+            ...prev,
+            [nameInput]: value,
+        }));
+    };
+
+    const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        console.log(registerData);
     }
 
     return (
         <div>
             <h1>RegisterPage</h1>
 
-            <form>
+            <form noValidate onSubmit={ onSubmit }>
                 <input 
                     type="text"
                     placeholder="Name"
+                    name="name"
                     value={name}
                     onChange={onChange}
                 />
@@ -30,6 +40,7 @@ export const RegisterPage = () => {
                 <input 
                     type="email"
                     placeholder="Email"
+                    name="email"
                     value={email}
                     onChange={onChange}
                 />
@@ -37,6 +48,7 @@ export const RegisterPage = () => {
                 <input 
                     type="password"
                     placeholder="Password"
+                    name="password1"
                     value={password1}
                     onChange={onChange}
                 />
@@ -44,6 +56,7 @@ export const RegisterPage = () => {
                 <input 
                     type="password"
                     placeholder="Repeat Password"
+                    name="password2"
                     value={password2}
                     onChange={onChange}
                 />
