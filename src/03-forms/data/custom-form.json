@@ -4,21 +4,36 @@
         "name": "firstName",
         "placeholder": "Edgard",
         "label": "First Name",
-        "value": "Edgard"
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            }
+        ]
     },
     {
         "type": "input",
         "name": "lastName",
         "placeholder": "Vilo",
         "label": "Last Name",
-        "value": ""
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            }
+        ]
     },
     {
         "type": "email",
         "name": "email",
         "placeholder": "vilo@mail.com",
         "label": "Email Address",
-        "value": ""
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            }
+        ]
     },
     {
         "type": "select",
@@ -36,7 +51,12 @@
             },
             {
                 "id": 3,
-                "label": "Final Fantasyh"
+                "label": "Final Fantasy"
+            }
+        ],
+        "validations": [
+            {
+                "type": "required"
             }
         ]
     }
