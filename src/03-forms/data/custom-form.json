@@ -4,13 +4,20 @@
         "name": "firstName",
         "placeholder": "Edgard",
         "label": "First Name",
-        "value": ""
+        "value": "Edgard"
     },
     {
         "type": "input",
         "name": "lastName",
         "placeholder": "Vilo",
         "label": "Last Name",
+        "value": ""
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "vilo@mail.com",
+        "label": "Email Address",
         "value": ""
     }
 ]
