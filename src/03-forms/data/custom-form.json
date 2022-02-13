@@ -19,5 +19,25 @@
         "placeholder": "vilo@mail.com",
         "label": "Email Address",
         "value": ""
+    },
+    {
+        "type": "select",
+        "name": "favoriteGame",
+        "label": "Favorite Game",
+        "value": "",
+        "options": [
+            {
+                "id": 1,
+                "label": "Super Smash"
+            },
+            {
+                "id": 2,
+                "label": "Kingdom Hearts"
+            },
+            {
+                "id": 3,
+                "label": "Final Fantasyh"
+            }
+        ]
     }
 ]
